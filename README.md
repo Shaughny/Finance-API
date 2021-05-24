@@ -1,4 +1,4 @@
-# FA-API
+# Financial Assistant API
 API for the database of the financial assistant application.
 
 Capable of Create, Read and Delete requests.
