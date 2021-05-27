@@ -7,7 +7,7 @@ const PORT = 3001;
 
 
 
-var db;
+let db;
 
 function handleDisconnect() {
   db = mysql.createConnection(); // Recreate the connection
@@ -36,7 +36,7 @@ handleDisconnect();
 
 
 app.use(cors());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 app.post('/trans/insert',(req,res)=>{
