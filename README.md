@@ -2,6 +2,11 @@
 
 API for the database of the financial assistant application.
 
+### Used:
+- Express.js
+- Node.js
+- MySQL
+
 ### Queries:
 - Create
 - Read
