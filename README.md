@@ -1,6 +1,6 @@
 # Financial Assistant API
 
-API for the database of the financial assistant application.
+Back-end API for the financial assistant application containing server and database.
 
 ### Used:
 - Express.js
