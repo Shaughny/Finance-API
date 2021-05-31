@@ -1,6 +1,13 @@
 # Financial Assistant API
+
 API for the database of the financial assistant application.
 
-Capable of Create, Read and Delete requests.
+### Queries:
+- Create
+- Read
+- Delete
+
+
+### View the Front end of the Application
 
 Front end of application hosted at: https://mofinance.netlify.app/
