@@ -9,18 +9,19 @@ const PORT = 3001;
 
 let db;
 
-function handleDisconnect() {
-  db = mysql.createConnection(); // Recreate the connection
+const handleDisconnect = () => {
+  
+  db = mysql.createConnection(); // Recreate  connection
  
 
-  db.connect(function(err) {             
+  db.connect( (err) => {             
     if(err) {                                     
       console.log('error when connecting to db:', err);
-      setTimeout(handleDisconnect, 2000); //  a delay before attempting to reconnect and 
+      setTimeout(handleDisconnect, 2000); //  delay before attempting to reconnect and 
     }                                       // process asynchronous requests in the meantime.
   });                                   
                                           
-  db.on('error', function(err) {
+  db.on('error', (err) => {
     console.log('db error', err);
     if(err.code === 'PROTOCOL_CONNECTION_LOST') { 
       handleDisconnect();                         
