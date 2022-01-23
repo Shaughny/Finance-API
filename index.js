@@ -5,7 +5,9 @@ const mysql = require("mysql");
 const dbInfo = require('./cleardb');
 
 app.use(express.urlencoded({extended: false}));
-app.use(cors());
+app.use(cors({
+  origin: 'https://mofinance.netlify.app'
+}));
 app.use(express.json());
 
 
