@@ -3,10 +3,6 @@ const app = express();
 const cors = require("cors");
 const mysql = require("mysql");
 
-const PORT = 3001;
-
-
-
 let db;
 
 const handleDisconnect = () => {
@@ -103,7 +99,6 @@ app.delete('/stocks/delete/:id',(req,res) =>{
 })
 
 
-app.listen(process.env.PORT || PORT, ()=>{
-    console.log(`running on ${PORT}`);
+app.listen(process.env.PORT, ()=>{
 })
 
