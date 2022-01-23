@@ -36,7 +36,8 @@ const handleDisconnect = () => {
 
 handleDisconnect();
 const corsOptions = {
-  origin: 'https://mofinance.netlify.app/'
+  methods: 'GET,POST,PATCH,DELETE,OPTIONS',
+  origin: 'https://mofinance.netlify.app'
 }
 
 
