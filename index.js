@@ -4,47 +4,45 @@ const cors = require("cors");
 const mysql = require("mysql");
 const dbInfo = require('./cleardb');
 
-// app.use(express.urlencoded({extended: true}));
-app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 app.use(cors());
-let db = mysql.createConnection(  { 
-  host: 'us-cdbr-east-05.cleardb.net',
-user: 'beb00d4502d1f0',
-password: '9b7de2e2',
-database: 'heroku_edeb9ea75841df7'});
+app.use(express.json());
 
-const handleDisconnect = () => {
+
+let db = mysql.createConnection( 'mysql://beb00d4502d1f0:9b7de2e2@us-cdbr-east-05.cleardb.net/heroku_edeb9ea75841df7?reconnect=true');
+
+// const handleDisconnect = () => {
   
-  db = mysql.createConnection(  { 
-     host: 'us-cdbr-east-05.cleardb.net',
-  user: 'beb00d4502d1f0',
-  password: '9b7de2e2',
-  database: 'heroku_edeb9ea75841df7'}); // Recreate  connection
+//   db = mysql.createConnection(  { 
+//      host: 'us-cdbr-east-05.cleardb.net',
+//   user: 'beb00d4502d1f0',
+//   password: '9b7de2e2',
+//   database: 'heroku_edeb9ea75841df7'}); // Recreate  connection
  
 
-  db.connect( (err) => {             
-    if(err) {                                     
-      console.log('error when connecting to db:', err);
-      setTimeout(handleDisconnect, 2000); //  delay before attempting to reconnect and 
-    }                                       // process asynchronous requests in the meantime.
-  });                                   
+//   db.connect( (err) => {             
+//     if(err) {                                     
+//       console.log('error when connecting to db:', err);
+//       setTimeout(handleDisconnect, 2000); //  delay before attempting to reconnect and 
+//     }                                       // process asynchronous requests in the meantime.
+//   });                                   
                                           
-  db.on('error', (err) => {
-    console.log('db error', err);
-    if(err.code === 'PROTOCOL_CONNECTION_LOST') { 
-      handleDisconnect();                         
-    } else {                                      
-      throw err;                                 
-    }
-  });
-}
+//   db.on('error', (err) => {
+//     console.log('db error', err);
+//     if(err.code === 'PROTOCOL_CONNECTION_LOST') { 
+//       handleDisconnect();                         
+//     } else {                                      
+//       throw err;                                 
+//     }
+//   });
+// }
 
-handleDisconnect();
-const corsOptions = {
-  methods: 'GET,POST,PATCH,DELETE,OPTIONS',
-  origin: 'https://*',
-  content
-}
+// handleDisconnect();
+// const corsOptions = {
+//   methods: 'GET,POST,PATCH,DELETE,OPTIONS',
+//   origin: 'https://*',
+//   content
+// }
 
 
 
