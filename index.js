@@ -2,12 +2,19 @@ const express = require('express');
 const app = express();
 const cors = require("cors");
 const mysql = require("mysql");
+require('dotenv').config({path: __dirname + '/../.env'});
 
 let db;
 
 const handleDisconnect = () => {
   
-  db = mysql.createConnection(); // Recreate  connection
+  db = mysql.createConnection({
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE
+
+  }); // Recreate  connection
  
 
   db.connect( (err) => {             
