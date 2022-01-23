@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require("cors");
 const mysql = require("mysql");
-const dbInfo = require('./db');
+const dbInfo = require('./cleardb');
 
 let db;
 
