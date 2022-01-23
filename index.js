@@ -37,7 +37,7 @@ const corsOptions = {
 
 
 app.use(cors({
-  origin: 'https://mofinance.netlify.app/'
+  origin: 'https://mofinance.netlify.app'
 }));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
