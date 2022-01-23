@@ -9,10 +9,10 @@ let db;
 const handleDisconnect = () => {
   
   db = mysql.createConnection({
-    host: process.env.HOST,
-    user: process.env.USER,
-    password: process.env.PASSWORD,
-    database: process.env.DATABASE
+    host: 'us-cdbr-east-05.cleardb.net',
+    user: 'beb00d4502d1f0',
+    password: '9b7de2e2',
+    database: 'heroku_edeb9ea75841df7'
 
   }); // Recreate  connection
  
@@ -42,7 +42,7 @@ const corsOptions = {
 
 
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
