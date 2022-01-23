@@ -69,7 +69,7 @@ app.post('/stocks/insert',(req,res) =>{
 app.get('/trans/get',(req,res)=>{
     const sqlSelect = "SELECT * FROM transactions";
     db.query(sqlSelect,(err,result)=>{
-        res.send(result);
+        res.json(result);
     })
 })
 
