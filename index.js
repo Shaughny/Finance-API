@@ -31,14 +31,15 @@ const handleDisconnect = () => {
 handleDisconnect();
 const corsOptions = {
   methods: 'GET,POST,PATCH,DELETE,OPTIONS',
-  origin: 'https://*'
+  origin: 'https://*',
+  content
 }
 
 
-
-app.use(cors(corsOptions));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.use(cors());
+
 
 app.post('/trans/insert',(req,res)=>{
 
@@ -67,7 +68,6 @@ app.post('/stocks/insert',(req,res) =>{
 app.get('/trans/get',(req,res)=>{
     const sqlSelect = "SELECT * FROM transactions";
     db.query(sqlSelect,(err,result)=>{
-        res.setHeader('content-type','json');
         res.send(JSON.stringify(result));
     })
 })
