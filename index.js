@@ -4,7 +4,14 @@ const cors = require("cors");
 const mysql = require("mysql");
 const dbInfo = require('./cleardb');
 
-let db;
+// app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+app.use(cors());
+let db = mysql.createConnection(  { 
+  host: 'us-cdbr-east-05.cleardb.net',
+user: 'beb00d4502d1f0',
+password: '9b7de2e2',
+database: 'heroku_edeb9ea75841df7'});
 
 const handleDisconnect = () => {
   
@@ -40,9 +47,7 @@ const corsOptions = {
 }
 
 
-app.use(express.urlencoded({extended: true}));
-app.use(express.json());
-app.use(cors());
+
 
 
 app.post('/trans/insert',(req,res)=>{
