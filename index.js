@@ -31,14 +31,12 @@ const handleDisconnect = () => {
 handleDisconnect();
 const corsOptions = {
   methods: 'GET,POST,PATCH,DELETE,OPTIONS',
-  origin: 'https://mofinance.netlify.app'
+  origin: 'https://*'
 }
 
 
 
-app.use(cors({
-  origin: 'https://mofinance.netlify.app'
-}));
+app.use(cors(corsOptions));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
@@ -69,7 +67,8 @@ app.post('/stocks/insert',(req,res) =>{
 app.get('/trans/get',(req,res)=>{
     const sqlSelect = "SELECT * FROM transactions";
     db.query(sqlSelect,(err,result)=>{
-        res.json(result);
+        res.setHeader('content-type','json');
+        res.send(JSON.stringify(result));
     })
 })
 
