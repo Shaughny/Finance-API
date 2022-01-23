@@ -8,7 +8,11 @@ let db;
 
 const handleDisconnect = () => {
   
-  db = mysql.createConnection(dbInfo); // Recreate  connection
+  db = mysql.createConnection(  { 
+     host: 'us-cdbr-east-05.cleardb.net',
+  user: 'beb00d4502d1f0',
+  password: '9b7de2e2',
+  database: 'heroku_edeb9ea75841df7'}); // Recreate  connection
  
 
   db.connect( (err) => {             
@@ -68,7 +72,7 @@ app.post('/stocks/insert',(req,res) =>{
 app.get('/trans/get',(req,res)=>{
     const sqlSelect = "SELECT * FROM transactions";
     db.query(sqlSelect,(err,result)=>{
-        res.send(JSON.stringify(result));
+        res.send(result);
     })
 })
 
